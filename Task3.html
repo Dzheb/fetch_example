@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main_block {
+        text-align: center;
+        margin-top: 100px;
+      }
+      .main_frame {
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        width: 300px;
+        height: 200px;
+        background-color: rgb(212, 195, 133);
+        text-justify: center;
+        border-radius: 8px;
+        border: solid 1px rgb(39, 39, 161);
+      }
+      .my {
+        position: absolute;
+        top: 30px;
+        left: 10px;
+        width: 30px;
+        height: 20px;
+        border-radius: 8px;
+        border: solid 1px rgb(241, 241, 245);
+        background-color: rgb(166, 158, 155);
+        transition: width 2s, left 2s;
+      }
+      .main_frame:hover > .my {
+        left: 250px;
+        width: 10px;
+        transition: width 2s, left 2s;
+      }
+      .proposal{
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main_block">
+      <div class="main_frame">
+        <div id="myElement" class="my"></div>
+        <p class="proposal">Нажмите на кнопку и она станет красной</p>
+      </div>
+    </div>
+    <script>
+      const changeStyleDelayed = (id, delay) => {
+        const el = document.querySelector(`#${id}`);
+        const my = document.querySelector('.my');
+        my.addEventListener('click', changeColor);
+        function changeColor() {
+          setTimeout(() => (el.style.background = 'red'), delay);
+        }
+      };
+      changeStyleDelayed('myElement', 2000);
+    </script>
+  </body>
+</html>
